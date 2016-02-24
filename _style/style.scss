@@ -1,0 +1,714 @@
+//color values
+$main-color:#37474f;
+$main-color-op:rgba(55, 71, 79, 0.3);
+$main-color-op2:rgba(55, 71, 79, 0.9);
+$secound:#0288d1;
+$text:#212121;
+$text2:#f6f6f6;
+$link:#c62828;
+$link-hov:#ff1744;
+//Mixn Values
+
+//common style
+@mixin common($font,$color){
+    font-size: $font;
+    color: $color;
+}
+//border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+//@mixin transition
+@mixin transition($val){
+    -webkit-transition:$val;
+    -moz-transition:$val;
+    -ms-transition:$val;
+    transition:$val;
+}
+
+html{
+    font-size: 16px;
+}
+body{
+    font-family: IRANSans-web,tahoma;
+    background-color: #f6f6f6;
+}
+/**fixed nav ****/
+.fix{
+    position: fixed;
+    background: $main-color-op2 !important;
+}
+
+.color {
+    a{
+    color: #f6f6f6 ;
+}
+}
+.break{
+    width: 34.6875em;
+}
+/*HEADER 
+========================================================================*/
+header .container{
+    width: 100%;
+    height: 100%;
+    min-height:676.5px;
+    background:url(../_img/Back.jpg); 
+}
+    .close,.open{
+        display: none;
+    }
+.navigation{
+    background-color: $main-color-op;
+    z-index: 99999;
+}
+
+.navigation .logo a img{
+    width: 50px;
+}
+nav {
+    font-size: 1.5rem;
+    ul{
+        padding: 0.1rem;
+    }
+    li{
+        float: right;
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+    }
+    li:first-child{
+        margin-right:2rem;
+    }
+    a{
+        color: #f6f6f6;
+        @include transition(color 0.5s ease);
+        &:hover{
+            color: $secound;
+        }
+    }
+}
+/*** Header Content ***/
+.header-content  {
+        position: relative;
+        /*top: 2.5rem;*/
+    @include transition(top 0.2s ease);
+    .logo{
+        background-image: url(../_img/Logo.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 20rem; 
+        opacity: 0.9;
+        height: 20rem;
+        padding-top: 2rem;
+    }
+    p,h1{
+        position: relative;
+        top: -3rem;
+    }
+    p{
+        font-weight:normal;
+        @include common(4rem,#f6f6f6);
+    }
+    h1{
+        font-weight: normal;
+        color: #f6f6f6;
+    }
+    a{
+        position: relative;
+        top: -2rem;
+        display: inline-block;
+        @include common(1.5rem,#f6f6f6);
+        background: $secound;
+        padding: 0.4rem;
+        @include border-radius(0.2rem);
+        @include transition(background 0.5s ease);
+        border:0.2rem solid $main-color-op;
+        &:hover{
+            background: $main-color;
+        }
+        span{
+            position: relative;
+            right: 0.3rem;
+            @include common(1rem,#ccc);
+        }
+    }
+}
+
+
+/*SECTIONS
+========================================================================*/
+  /*** section-1 ***/
+.content{
+     padding: 1rem 0;
+     padding: 1rem 0;
+    .content-header{
+        @include common(3rem,$main-color);
+    }
+    .content-paragraph{
+        @include common(1.7rem,$text);
+        padding-right: 10rem;
+        padding-left: 10rem;
+        a{
+            color: $link;
+            border-bottom: 0.1rem dotted $link;
+            @include transition(all 0.2s ease);
+            &:hover{
+                color: $link-hov;
+                border-bottom: 0.1rem dotted $link-hov;
+            }
+        }
+    }
+    .content-paragraph:after{
+        content: ' ';
+        display: block;
+        width: 5rem;
+        margin: 1.5rem auto 1.5rem auto;
+        height: 1px;
+        background: $main-color-op;
+    }
+}
+.why-orsi {
+    .items{
+     [class*=col-]{
+
+         .img-height{
+             height: 13.125rem;
+         }
+        h3{
+                padding: 0.5rem;
+                @include common (1.5rem, $main-color);
+         }
+         p{
+             @include common(1.3rem,$text);
+         }
+        a{
+            color: $link;
+            border-bottom: 0.1rem dotted $link;
+            @include transition(all 0.2s ease);
+            &:hover{
+                color: $link-hov;
+                border-bottom: 0.1rem dotted $link-hov;
+            }
+        }
+         
+     }
+   }
+}
+/**** section-2 ***/
+.learn{
+    padding-bottom: 2.5rem;
+}
+.learn-show{
+    position: relative;
+    div{
+        height: 2rem;
+        margin-top: 0.5rem;
+        background: $secound;
+        @include border-radius(5rem);
+        opacity: 0.8;
+    }
+    .b{
+        background: $main-color ;
+    }
+}
+.learn-contact{
+    padding-top: 3rem;
+    h4{
+        @include common(1.4rem,$main-color);
+    }
+    p{
+        @include common(1.3rem,$text);
+        span{
+            color: $main-color;
+        }
+        a{
+            color: $link;
+            border-bottom: 0.1rem dotted $link;
+            @include transition(all 0.2s ease);
+            &:hover{
+                color: $link-hov;
+                border-bottom: 0.1rem dotted $link-hov;
+            }
+        }
+    }
+}
+/*** Section-3 ***/
+.contact{
+    border-top: 0.1rem solid $main-color-op;
+}
+.contact {
+    .flex-end{
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        -moz-justify-content: space-between;
+    }
+    .container{
+        padding: 1rem 0;
+    }
+    input,textarea{
+        font-family: IRANSans,tahoma;
+        font-size: 1.1rem;
+        color: $main-color;
+        padding: 0.5rem;
+        border: 0.1rem solid $main-color-op;
+        background: #f6f6f6;
+        -webkit-appearance: none;
+        border-radius:0;
+    }
+    input:focus,textarea:focus{
+        border: 0.1rem solid $main-color;
+    }
+    input[type='submit']{
+        background-color: $secound;
+        border: 0.2rem solid $main-color-op;
+        color: #f6f6f6;
+        cursor: pointer;
+        @include border-radius(0.2rem);
+        @include transition(background 0.2s ease);
+    }
+    input[type='submit']:focus,
+    input[type='submit']:hover{
+        background-color: $main-color;
+    }
+    
+}
+.contact textarea{
+    width: 100%;
+    height: 10rem;
+    resize: none;
+}
+.contact textarea:focus{
+    outline: none;
+}
+
+/*** section-4 ***/
+.about{
+//    height: 400px;
+    padding-top: 1rem;
+    padding-bottom: 0.2rem;
+    background: $main-color;
+    color: #f6f6f6;
+    h5{
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+        @include common(1.2rem,#f6f6f6);
+    }
+    p{
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+    ul{ 
+        li{
+          
+            display: inline-block;
+            @include common(1rem,#f6f6f6);
+            margin-right: 0.5rem;
+            a{
+                color: #f6f6f6;
+                @include transition(color 0.2s ease);
+                &:hover{
+                    color: $secound;
+                }
+            }
+        }
+
+    }
+    .developer{
+        text-align: center;
+        a{
+            color: #f6f6f6;
+            border-bottom: 0.1rem dotted #f6f6f6; 
+            &:hover{
+                color: $secound;
+                border-bottom: 0.1rem dotted $secound; 
+
+            }
+        }
+    }
+    div.lg-8:last-child{
+        text-align: center;
+        font-size: 1.4rem;
+        a{
+            color: #f6f6f6;
+            @include common(1.5rem,#f6f6f6);
+            &:hover{
+                color: $secound;
+            }
+        }
+    }
+}
+
+/*** section-2 ***/
+pre{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    color: $text;
+    direction: ltr;
+    background: $main-color-op;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    @include border-radius(0.2rem);
+    .blue{
+        color: $main-color;
+    }
+    .red{
+        color: $link-hov;
+    }
+}
+.learn{
+    border-top: 1px solid $main-color-op;
+    .get-started{
+        p{
+            @include common(1.3rem,$text);
+            padding:0 10rem;
+            a{
+                color: $link;
+                border-bottom: 0.1rem dotted $link;
+                @include transition(color 0.2s ease);
+                &:hover{
+                    color: $link-hov;
+                    border-bottom: 0.1rem dotted $link-hov;
+
+                }
+            }
+        }
+    }
+}
+
+/*TUTORIAL
+========================================================================*/
+.tutorial{
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #fff;
+    height: 800px;
+    .tutorial-content{
+        h2{
+            @include common(1.5rem,$main-color);
+        }
+    }
+}
+
+
+/*RESPONSIVE
+========================================================================*/
+@media screen and (max-width:75em){
+    html{
+        font-size:15px;
+    }
+        .content{
+        .content-paragraph{
+            padding-right: 5rem ;
+            padding-left: 5rem ;
+        }
+    }
+   
+    .learn{
+        .get-started{
+            p{
+                padding: 0 5rem;
+            }
+        }
+    }
+    .preview{
+        .preview-header{
+            margin-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width:62.375em){
+    html{
+        font-size:14px;
+    }
+    nav{
+        padding-bottom: 0;
+        ul{
+            padding: 0;
+        }
+    }
+    .description{
+        position: relative;
+    }
+
+    .why-orsi {
+        [class*=col-]{
+            margin-bottom: 2.8rem;
+        }
+        .items{
+
+            p{
+                padding-right:1rem;
+                padding-left:1rem;
+            }
+        }
+    }
+    .learn{
+        .learn-show{
+            margin-top: 1rem;
+        }
+    }
+    .content{
+        .content-paragraph{
+            padding-right: 2rem ;
+            padding-left: 2rem ;
+        }
+    }
+    .about{
+        h5{
+            font-size: 1.4rem;
+        }
+        p{
+            font-size:1.2rem;
+        }
+        li{
+            margin-top: 0.5rem;
+            a{
+            font-size: 1.2rem;
+            }
+        }
+        .lg-8:last-child{
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media screen and (max-width:48em){
+    header .container{
+        min-height: 600px;
+    }
+
+    html{
+        font-size: 12px ;
+    }
+    .navigation{
+        
+        nav{
+            z-index: 99999;
+            padding-bottom: 1rem;
+        }
+        a{
+            font-size: 1.8rem;
+        }
+        .logo{
+            display: none;
+        }
+
+    }
+    .header-content{
+        position: relative;
+        margin-top: 1.5rem;
+            a{
+                font-size: 1.8rem;
+            }
+        }
+        .why-orsi {
+
+        .contant-paragraph:after{
+            margin-bottom: 0 !important;
+        }
+        [class*=offset-]{
+            margin:auto 0 !important;
+            padding: 0 2rem;
+        }
+        .items{
+            h3{
+                font-size: 2rem !important;;
+            }
+            p{
+                font-size: 1.6rem !important;
+                padding: 0 2rem;
+            }
+
+        }
+    }
+       .learn {
+           padding-bottom: 1rem;
+           .learn-contact{
+               padding-top: 0;
+               h4{
+                   font-size: 2rem;
+               }
+               p{
+                   font-size: 1.6rem;
+               }
+            }
+        }
+    .contact {
+        input:first-child{
+        margin-top: 0;
+        }
+        input{
+        margin-top: 1rem;
+        }
+    }
+       .offset-right-3{
+            margin-right: auto!important;
+        }
+        .offset-left-3{
+            margin-left: auto !important;
+        }
+}
+
+/*BREKPOINT
+=================================================================*/
+@media screen and(max-width:34.6875em){
+           header .container{
+        min-height: 480px;
+    }
+        html{
+        font-size: 11px;
+    }
+   header .container{
+        background: url(../_img/Back-R.jpg);
+    }
+    .close {
+        direction: ltr;
+        display: block !important;
+        i{
+            @include common(2.5rem,#f6f6f6);
+            margin-left: 1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            @include transition(color 0.2s ease);
+            &:hover,&:focus{
+                color:$secound;
+                }
+        }
+    }
+    .open{
+        width: 100%;
+        position: fixed;
+        padding: 0.5rem;
+        background: rgba(55, 71, 79, 0.8);
+        display: block;
+        i{
+            color: #f6f6f6;
+            font-size: 2rem;
+            cursor: pointer;
+            @include transition(color 0.2s ease);
+            &:hover,&:focus{
+                color:$secound;
+                }
+         }
+    }
+    .navigation {
+        position:fixed;
+        top: 0;
+        height: 100%;
+        z-index: 99999;
+        overflow: hidden;
+        background:rgba(55, 71, 79, 0.9);
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        ul{
+            margin-top: 1rem;
+            text-align: center;
+        }
+        a{
+            font-size: 1.5rem;
+        }
+        li{
+            float: none !important;
+            margin-left: 0 !important;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid $main-color;
+            @include transition(background 0.2s ease);
+            &:hover,&:focus{
+                background: $secound;
+            }
+            a:hover{
+                color: #f6f6f6;
+            }
+        }
+        li:first-child{
+            margin: 0;
+        }
+        
+    } 
+
+    .open-navigate{
+        .navigation{
+        transition:transform 0.3s ease;
+        -webkit-transition:-webkit-transform 0.3s ease;
+        -moz-transition:-moz-transform 0.3s ease;
+        -ms-transition:-ms-transform 0.3s ease;
+        transition:transform 0.3s ease;
+        transform: scale(1) ;
+        -webkit-transform: scale(1) ;
+        -moz-transform: scale(1) ;
+        -ms-transform: scale(1) ;
+            }
+    }
+
+    .header-content{
+        top: 2rem;
+        h1{
+          font-size:2.5rem;
+        }
+        .download{
+            span{
+                display: none !important;
+            }
+        }
+    }
+    
+    pre{
+        padding: 0;
+    }
+    .learn {
+        .get-started{
+            p{
+                 text-align: center;
+                padding: 0 0.5rem;;
+            }
+        }
+    }
+
+    .about{
+        h5{
+            font-size: 1.5rem;
+        }
+        p{
+            font-size:1.3rem;
+        }
+        li{
+            margin-top: 0.5rem;
+            a{
+                font-size: 1.5rem;
+            }
+        }
+        .lg-8:last-child{
+            font-size: 1.7rem;
+        }
+    }
+}
+@media screen and (max-width:25em){
+    html{
+        font-size: 10px;
+    }
+    .why-orsi{
+        .img-height{
+            height: 450px;
+        }
+        .items{
+            h3{
+                margin:1.5rem 0;
+            }   
+        }
+    }
+}
+
+
+
